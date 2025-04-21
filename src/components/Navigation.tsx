@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Shield, Layout, Users, CloudLightning, LogOut, InfoIcon, Menu, X, Coffee } from 'lucide-react';
+import { Home, Shield, Layout, Users, CloudLightning, LogOut,Link,  InfoIcon, Menu, X, Coffee } from 'lucide-react';
 import { User } from 'firebase/auth';
 
 interface NavigationProps {
@@ -64,6 +64,14 @@ const Navigation: React.FC<NavigationProps> = ({ setCurrentPage, user, onSignOut
               className="flex items-center space-x-2 text-white hover:text-green-400 transition p-2"
             >
               <Coffee/>  <span>Buy me a coffee</span>
+            </a>
+            <a
+              href="https://t.me/cidphish"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-white hover:text-green-400 transition p-2"
+            >
+              <Link/>  <span>Join Telegram</span>
             </a>
 
           {user && (

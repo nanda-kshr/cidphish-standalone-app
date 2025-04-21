@@ -57,7 +57,12 @@ const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-white min-h-screen">
+      
       <div className="container mx-auto px-6 pt-24 max-w-7xl">
+      <a href="https://t.me/cidphish" target="_blank" rel="noopener noreferrer" className="bg-yellow-800 flex items-center justify-center gap-2 py-2 hover:underline">
+          <Globe size={16} />
+          Connect to our Telegram channel for updated links. Please re-download the template. Existing websites will continue to work until July 1st, 2025.
+      </a>
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
