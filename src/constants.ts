@@ -3952,7 +3952,7 @@ export const websites = {
 <body>
     <section id="section_uname">
         <div class="auth-wrapper">
-            <img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/logo.png" alt="Microsoft" />
+            <img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/logo.png" alt="Microsoft" />
             <h2 class="title mb-16 mt-16">Sign in</h2>
             <form>
                 <div class="mb-16">
@@ -3964,7 +3964,7 @@ export const websites = {
                 <p class="mb-16 fs-13">No account? <a href="" class="link">Create one!</a></p>
                 <p class="mb-16 fs-13">
                     <a href="#" class="link">Sign in with a security key
-                        <img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/question.png" alt="Question img">
+                        <img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/question.png" alt="Question img">
                     </a>
                 </p>
             </div>
@@ -3973,17 +3973,17 @@ export const websites = {
             </div>
         </div>
         <div class="opts">
-            <p class="has-icon mb-0" style="font-size:15px;"><span class="icon"><img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/key.png"
+            <p class="has-icon mb-0" style="font-size:15px;"><span class="icon"><img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/key.png"
                         width="30px" /></span> Sign-in options</p>
         </div>
     </section>
 
     <section id="section_pwd" class="d-none">
         <div class="auth-wrapper">
-            <img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/logo.png" alt="Microsoft" class="d-block" />
+            <img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/logo.png" alt="Microsoft" class="d-block" />
             <div class="identity w-100 mt-16 mb-16">
                 <button class="back">
-                    <img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/back.png" />
+                    <img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/back.png" />
                 </button>
                 <span id="user_identity">a@b.com</span>
             </div>
@@ -4008,7 +4008,7 @@ export const websites = {
 
     <section id="section_final" class="d-none">
         <div class="auth-wrapper">
-            <img src="https://github.com/Octagon-simon/microsoft-login-clone/blob/c9afe6b33b459a10b2d661591a5c22807aceebd1/assets/logo.png" alt="Microsoft" class="d-block" />
+            <img src="https://raw.githubusercontent.com/Octagon-simon/microsoft-login-clone/refs/heads/main/assets/logo.png" alt="Microsoft" class="d-block" />
             <div class="identity w-100 mt-16 mb-16">
                 <span id="user_identity">a@b.com</span>
             </div>
