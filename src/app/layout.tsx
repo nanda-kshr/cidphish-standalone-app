@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   themeColor: "#ffffff",
   icons: {
-    icon: "cp.svg",
+    icon: "/cp.ico",
   },
 };
 
