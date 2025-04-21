@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
+
 import { websites } from '@/constants'; 
 
 export async function GET() {
