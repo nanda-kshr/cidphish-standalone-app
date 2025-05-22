@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/firebase';
-// import { Resend } from 'resend';
 
 export async function POST(request: Request) {
   try {
 
-    // const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await request.json();
     const { uid, websiteName, email, password } = body;
     
