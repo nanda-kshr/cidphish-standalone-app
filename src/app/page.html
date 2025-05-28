@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" type="image/png">
     <style>
-        body {
+     body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #c7d5e0;
-    background-color: #1b2838; /* Dark background similar to Steam */
-    overflow: hidden; /* Hide scrollbars if background image overflows */
+    background-color: #1b2838;
+    overflow-x: hidden;
 }
 
 .background-overlay {
@@ -21,10 +21,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://store.fastly.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg');
+    background-image: url('https://store.fastly.placeholder.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(0.6); /* Darken the background image */
+    filter: brightness(0.6);
     z-index: -1;
 }
 
@@ -33,27 +33,54 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background-color: rgba(27, 40, 56, 0.8); /* Slightly transparent dark header */
+    background-color: rgba(27, 40, 56, 0.8);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 10;
 }
 
 .header .logo img {
-    height: 30px; /* Adjust logo size */
+    height: 30px;
 }
 
-.header .nav-links a,
-.header .header-right a {
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown on mobile */
+    font-size: 24px;
+    color: #c7d5e0;
+    cursor: pointer;
+    order: 2; /* Place it after the logo but before the nav-wrapper on small screens */
+}
+
+.hamburger-menu i {
+    padding: 5px;
+}
+
+.nav-wrapper {
+    display: flex; /* Default display for desktop */
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; /* Allows it to take available space */
+}
+
+.nav-links,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a,
+.header-right a {
     color: #c7d5e0;
     text-decoration: none;
     margin-left: 20px;
     font-size: 14px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
-.header .nav-links a:hover,
-.header .header-right a:hover {
+.nav-links a:hover,
+.header-right a:hover {
     color: #fff;
 }
 
@@ -78,17 +105,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px); /* Adjust for header height */
+    min-height: calc(100vh - 80px);
     padding: 20px;
     box-sizing: border-box;
 }
 
 .login-box {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker, slightly transparent box */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 30px;
     border-radius: 5px;
     text-align: center;
     width: 600px;
+    max-width: 90%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -108,6 +136,7 @@
 
 .login-form {
     flex: 1;
+    min-width: 280px;
     text-align: left;
 }
 
@@ -147,7 +176,7 @@
 
 .remember-me input[type="checkbox"] {
     margin-right: 8px;
-    accent-color: #66c0f4; /* Changes checkbox color in some browsers */
+    accent-color: #66c0f4;
 }
 
 .sign-in-button {
@@ -182,21 +211,38 @@
 
 .qr-code-section {
     flex: 1;
+    min-width: 200px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .qr-code-box {
-    background-color: #fff; /* White background for QR code */
+    background-color: #fff;
     padding: 10px;
     border-radius: 3px;
-    display: inline-block; /* To center the white box */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-.qr-code-box img {
-    display: block; /* Remove extra space below image */
-    width: 150px; /* Adjust QR code image size */
-    height: 150px;
+.qr-code-box.error {
+    background-color: #32353c;
+    color: #e6e6e6;
+    border: 1px dashed #666;
+}
+
+.qr-error-message {
+    margin: 0;
+    font-size: 14px;
+    color: #8f98a0;
 }
 
 .qr-info {
@@ -218,12 +264,130 @@
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    color: rgba(255, 255, 255, 0.05); /* Very faint text */
-    font-size: 80px; /* Large, faint text */
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 80px;
     font-weight: bold;
-    pointer-events: none; /* Make them not clickable */
-    user-select: none; /* Prevent text selection */
-    z-index: -2; /* Behind everything */
+    pointer-events: none;
+    user-select: none;
+    z-index: -2;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For screens smaller than 768px (common tablet portrait and large mobile) */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+        flex-wrap: nowrap; /* Prevent immediate wrapping of header elements */
+        justify-content: space-between; /* Space between logo and hamburger */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-wrapper {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: rgba(27, 40, 56, 0.95); /* Dark background for dropdown */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        padding: 15px 0;
+        align-items: center;
+    }
+
+    .nav-wrapper.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links,
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a,
+    .header-right a {
+        margin: 10px 0; /* Stack links vertically */
+        padding: 5px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .login-container {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .login-box {
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .login-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .login-form {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .sign-in-button {
+        width: 100%;
+    }
+
+    /* Hide QR section on screens smaller than 768px */
+    .qr-code-section {
+        display: none;
+    }
+
+    .footer-games {
+        font-size: 40px;
+        bottom: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* For screens smaller than 480px (common mobile portrait) */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .login-box {
+        padding: 15px;
+    }
+
+    .login-box h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .footer-games {
+        font-size: 25px;
+    }
+}
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://store.fastly.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg'); /* This is the URL you provided */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6); /* Darken the background image */
+    z-index: -1;
 }
     </style>
 
@@ -268,16 +432,21 @@
         <div class="logo">
             <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" alt="Welcome Logo">
         </div>
-        <div class="nav-links">
-            <a href="https://steampowered.com">STORE</a>
-            <a href="https://steampowered.com">COMMUNITY</a>
-            <a href="https://steampowered.com">ABOUT</a>
-            <a href="https://steampowered.com">SUPPORT</a>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
         </div>
-        <div class="header-right">
-            <a href="https://steampowered.com" class="install-steam">Install Welcome</a>
-            <a href="https://steampowered.com" class="login-btn">login</a>
-            <a href="https://steampowered.com" class="language-select">language</a>
+        <div class="nav-wrapper" id="nav-wrapper">
+            <div class="nav-links">
+                <a href="#">STORE</a>
+                <a href="#">COMMUNITY</a>
+                <a href="#">ABOUT</a>
+                <a href="#">SUPPORT</a>
+            </div>
+            <div class="header-right">
+                <a href="#" class="install-steam">Install Welcome</a>
+                <a href="#" class="login-btn">login</a>
+                <a href="#" class="language-select">language &#9660;</a>
+            </div>
         </div>
     </div>
 
@@ -315,5 +484,22 @@
         <p>TOMS RAIDER</p>
         <p>SHIRTS HIKE</p>
     </div>
+    <script>
+        // This is simple JavaScript to toggle the nav on hamburger click
+        // In a real application, you'd likely use more robust JS or a framework.
+        const hamburger = document.getElementById('hamburger-menu');
+        const navWrapper = document.getElementById('nav-wrapper');
+
+        hamburger.addEventListener('click', () => {
+            navWrapper.classList.toggle('active');
+        });
+
+        // Close nav when clicking outside (optional)
+        document.addEventListener('click', (event) => {
+            if (!navWrapper.contains(event.target) && !hamburger.contains(event.target)) {
+                navWrapper.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
