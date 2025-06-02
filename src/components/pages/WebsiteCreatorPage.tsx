@@ -7,6 +7,7 @@ import { Loader2 } from 'lucide-react';
 import { API_CREATE_REPO } from '@/constants';
 import RequestButtons from '@/components/RequestButtons';
 import DisclaimerBanner from '@/components/DisclaimerBanner';
+import Link from 'next/link';
 
 
 
@@ -202,6 +203,9 @@ export const WebsiteCreatorPage: React.FC<WebsiteCreatorPageProps> = ({ setCurre
             />
             
             <div className="mb-4">
+              <Link href="https://youtu.be/vY1apOmNzLc?si=qdxYsgE1JQayhuot" className="text-green-400 hover:text-green-300 underline transition-colors duration-200">
+                Click Here for more Templates
+              </Link>
               <select 
                 value={websiteType}
                 onChange={(e) => setWebsiteType(e.target.value)}
