@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CidPhish",
-  description: "Phishing page simulation and training platform",
+  description: "Cyber Security simulation and training platform",
   keywords: ["phishing", "security", "training", "cyber security", "simulation"],
   authors: [{ name: "CidPhish Team" }],
   creator: "CidPhish",

