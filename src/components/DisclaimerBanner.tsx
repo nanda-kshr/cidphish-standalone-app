@@ -9,7 +9,7 @@ const DisclaimerBanner = () => {
         <div>
           <h3 className="text-yellow-500 font-semibold mb-1">Disclaimer</h3>
           <p className="text-gray-300">
-            This project is strictly for ethical and educational purposes. I am not responsible for any misuse. 
+            This project is strictly for ethical and educational purposes. You are not supposed to edit any files. I am not responsible for any misuse. 
             Always use cybersecurity tools responsibly!
           </p>
         </div>

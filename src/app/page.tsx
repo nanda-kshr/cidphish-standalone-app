@@ -47,8 +47,7 @@ export default function HOME(){
   };
   
   useEffect(() => {
-    
-
+      setCurrentPage('home');
     if (user) {
       setCurrentPage('home');
       const fetchTemplate = async () => {
@@ -110,7 +109,11 @@ export default function HOME(){
   };
   const renderPage = () => {
     if (loading) {
-      return <div>Loading...</div>;
+      return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+      </div>
+      );
     }
     switch(currentPage) {
       case 'home': return <HomePage setCurrentPage={setCurrentPage}/>;
@@ -131,7 +134,6 @@ export default function HOME(){
         user={user || null}
         onSignOut={handleSignOut}
       />
-
       {renderPage()}
       <Footer />
 
